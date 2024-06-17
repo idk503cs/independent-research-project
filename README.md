@@ -3,7 +3,7 @@
 <b>Prerequisits</b>: AWS account, Docker (optional), Terraform, IntelliJ IDEA 2023.2.2 (and above), Windows 10 and above, internet connection, access to independent-research-project.zip (optional)
 <b>NOTE</b>: It is possible to run the performance test outside of IntelliJ or any other IDE. It requires Maven, Java 17 and Java 21 to be installed correctly locally.
 
-1. Extract the independent-research-project.zip file. It contains two git repository folders and a data folder.
+1. Extract the artefact.zip file. It contains two git repository folders and a data folder.
    <br>a. "independent-research-project" is the git repository with branches containing all the data from the performance tests. 
    <br>b. "performance-test" is a git repository containing the application code and scripts for executing the performance test and summarising the data.
    <br>c. "data" contains all the CSV datafiles from the various Performance test runs, copied out of the "independent-research-project" git repo branches.
@@ -93,7 +93,7 @@ mvn clean verify sonar:sonar -D"sonar.scm.disabled=true" -D"sonar.verbose=true" 
    <br>NOTE: if the process fails due to AWS connectivity issues then wait for 5 mins and try again. Intermittent problems are common.
 
 13. Summarise the data
-   <br>a. get the abcolute path to the "independent-research-project" git repository from the provided: "independent-research-project.zip". It should already be extracted to disk
+   <br>a. get the abcolute path to the "independent-research-project" git repository from the provided: "artefact.zip". It should already be extracted to disk
    <br>b. Execute the "uk.ac.york.idk503.performancetest.results.Summarizer" class from the command line
    <br>i.   Pass in the absolute path to the extracted "independent-research-project" or the newly created repo used to store the new test results. 
    <br>ii.  Pass in the absolute path to a temp folder used to stage the data from the git repo. e.g. "C:\temp\data" folder.

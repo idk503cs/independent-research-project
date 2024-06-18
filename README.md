@@ -2,6 +2,7 @@
 
 <b>Prerequisits</b>: AWS account, Docker (optional), Terraform, IntelliJ IDEA 2023.2.2 (and above), Windows 10 and above, internet connection, access to artefact.zip (optional)
 <b>NOTE</b>: It is possible to run the performance test outside of IntelliJ or any other IDE. It requires Maven, Java 17 and Java 21 to be installed correctly locally.
+<b>NOTE</b>: WATCH_ME.mp4 is a large file and needs Git lfs installed for the repo to work perfectly.
 
 1. Extract the artefact.zip file. It contains two git repository folders and a data folder.
    <br>a. "independent-research-project" is the git repository with branches containing all the data from the performance tests. 

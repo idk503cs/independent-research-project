@@ -27,7 +27,7 @@
    <br>   ii. Extract the zip.
    <br>   iii. Open the command prompt at the: "sonarqube-10.5.1.90531\bin\windows-x86-64" folder or navidate there on the command line.
    <br>   iv. This build of SonarQube runs on Java 17. Set SONAR_JAVA_PATH to the Java executable. e.g. set "SONAR_JAVA_PATH=C:\Users\idk503\.jdks\temurin-17.0.11\bin\java.exe"
-   <br>   v. Execute the "StartSonar.bat" script from the command line.
+   <br>   v. Execute the "StartSonar.bat" script from the command line. e.g. "sonarqube-10.5.1.90531\bin\windows-x86-64\StartSonar.bat"
    <br>   vi. SonarQube should be available on the browser using the following link: http://localhost:9000 but it may take several minutes to become available.
    
 4. Once SonarQube has finished starting
@@ -73,9 +73,15 @@ mvn clean verify sonar:sonar -D"sonar.scm.disabled=true" -D"sonar.verbose=true" 
    <br>b. Create key pair -> [name] = performance-test-key, Key pair type [RSA], Private key file format [.pem] -> Create key pair
    <br>c. Save the performance-test-key.pem file to the "performance-test\src\main\assembly\keys" folder
 
-9. Create a new private key for accessing the git repo that will store the integration test results
+9. Create a new public and private key for accessing the git repo that will store the integration test results.
    <br>a. Call the key independent-research-project.pem.
    <br>b. Copy the key to the "performance-test\src\main\assembly\keys" folder.
+   <br>c. Update permissions
+   <br>i. Right click on independent-research-project.pem -> Properties -> Security -> Advanced -> Disable Inheritance -> Remove all inherited permissions from this object. -> Apply -> OK
+   <br>ii. Edit -> Add -> <i>Type your username</i> -> Check Names -> OK -> Full Control -> Apply -> OK -> OK
+   <br>d. ssh-keygen -y -f independent-research-project.pem > independent-research-project.pub
+   <br>e. Copy the public key using the command below and add it to your git repo used storing the results. <B>NOTE:<B>  It is probably best to create a new repository for this to avoid issues.
+   <br>i. ssh-keygen -y -f independent-research-project.pem | clip
 
 10. Set environment variables
    <br>a. The following environment variables should be set globally or in src/main/assembly/terraform/t2.t4g/run.cmd as they are used by the performance test:
@@ -99,14 +105,15 @@ mvn clean verify sonar:sonar -D"sonar.scm.disabled=true" -D"sonar.verbose=true" 
    <br>ii.  Pass in the absolute path to a temp folder used to stage the data from the git repo. e.g. "C:\temp\data" folder.
    <br>iii. Locate the java 21 jdk used to build the software
    <br>iv.  Call the program from the "performance-test" on the commandline. e.g. 
-   <br><code>C:\Users\%USERNAME%\.jdks\temurin-21.0.3\bin\java ^
+   <br>C:\Users\%USERNAME%\.jdks\temurin-21.0.3\bin\java ^
     -cp target/performance-test-0.0.1-RELEASE-jar-with-dependencies.jar ^
-    uk.ac.york.idk503.performancetest.results.Summarizer "M:\Dev\independent-research-project" "M:\Dev\data"</code>
+    uk.ac.york.idk503.performancetest.results.Summarizer "M:\Dev\independent-research-project" "M:\Dev\data"
+
    <br>e. Review the results in:
-   <br>i.   Database: performance-test/DataLoad.xlsx
-   <br>ii.  Sort: performance-test/MergeSort.xlsx
-   <br>iii. Multistage: performance-test/Multistage.xlsx
-   <br>iv.  REST: performance-test/Service.xlsx
+   <br>i.   Database: DataLoad.xlsx
+   <br>ii.  Sort: MergeSort.xlsx
+   <br>iii. Multistage: Multistage.xlsx
+   <br>iv.  REST: Service.xlsx
 
 14. Future research and development.
 <br>If building on this project it may be useful to test the changes in docker before deploying them in AWS. This can be 
@@ -117,6 +124,4 @@ Accessing the using JConsole when running on the same machine as the performance
 <code>
 service:jmx:rmi:///jndi/rmi://localhost:10000/jmxrmi
 </code>
-
-
 

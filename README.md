@@ -106,10 +106,9 @@ mvn clean verify sonar:sonar -D"sonar.scm.disabled=true" -D"sonar.verbose=true" 
    <br>ii.  Pass in the absolute path to a temp folder used to stage the data from the git repo. e.g. "C:\temp\data" folder.
    <br>iii. Locate the java 21 jdk used to build the software
    <br>iv.  Call the program from the "performance-test" on the commandline. e.g. 
-   <br>C:\Users\%USERNAME%\.jdks\temurin-21.0.3\bin\java ^
-    -cp target/performance-test-0.0.1-RELEASE-jar-with-dependencies.jar ^
-    uk.ac.york.idk503.performancetest.results.Summarizer "M:\Dev\independent-research-project" "M:\Dev\data"
-
+   <br><code>C:\Users\%USERNAME%\.jdks\temurin-21.0.3\bin\java ^
+-cp target/performance-test-0.0.1-RELEASE-jar-with-dependencies.jar ^
+uk.ac.york.idk503.performancetest.results.Summarizer "C:\temp\artefact\independent-research-project" "C:\temp\data"</code>
    <br>e. Review the results in:
    <br>i.   Database: DataLoad.xlsx
    <br>ii.  Sort: MergeSort.xlsx

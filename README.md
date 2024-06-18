@@ -109,6 +109,7 @@ mvn clean verify sonar:sonar -D"sonar.scm.disabled=true" -D"sonar.verbose=true" 
    <br><code>C:\Users\%USERNAME%\.jdks\temurin-21.0.3\bin\java ^
 -cp target/performance-test-0.0.1-RELEASE-jar-with-dependencies.jar ^
 uk.ac.york.idk503.performancetest.results.Summarizer "C:\temp\artefact\independent-research-project" "C:\temp\data"</code>
+   <br><b>NOTE:</b> The issue identified in the WATCH_ME.mp4 demonstration is resolved.
    <br>e. Review the results in:
    <br>i.   Database: DataLoad.xlsx
    <br>ii.  Sort: MergeSort.xlsx

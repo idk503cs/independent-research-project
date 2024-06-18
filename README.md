@@ -80,7 +80,7 @@ mvn clean verify sonar:sonar -D"sonar.scm.disabled=true" -D"sonar.verbose=true" 
    <br>i. Right click on independent-research-project.pem -> Properties -> Security -> Advanced -> Disable Inheritance -> Remove all inherited permissions from this object. -> Apply -> OK
    <br>ii. Edit -> Add -> <i>Type your username</i> -> Check Names -> OK -> Full Control -> Apply -> OK -> OK
    <br>d. ssh-keygen -y -f independent-research-project.pem > independent-research-project.pub
-   <br>e. Copy the public key using the command below and add it to your git repo used storing the results. <B>NOTE:<B>  It is probably best to create a new repository for this to avoid issues.
+   <br>e. Copy the public key using the command below and add it to your git repo used storing the results. <B>NOTE:</B>  It is probably best to create a new repository for this to avoid issues.
    <br>i. ssh-keygen -y -f independent-research-project.pem | clip
 
 10. Set environment variables

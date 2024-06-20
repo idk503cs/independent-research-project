@@ -1,4 +1,5 @@
-<b>Video instructions are in WATCH_ME.mp4</b>
+<b>Video instructions are in WATCH_ME.mp4 which can be extracted from the split zip WATCH_ME.zip. </b>
+NOTE: Both WATCH_ME.zip and WATCH_ME.z01 are required to extract WATCH_ME.mp4.
 
 <b>Prerequisits</b>: AWS account, Docker (optional), Terraform, IntelliJ IDEA 2023.2.2 (and above), Windows 10 and above, internet connection, access to artefact.zip (optional)
 <b>NOTE</b>: It is possible to run the performance test outside of IntelliJ or any other IDE. It requires Maven, Java 17 and Java 21 to be installed correctly locally.
